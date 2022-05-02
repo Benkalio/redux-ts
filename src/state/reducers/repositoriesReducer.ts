@@ -9,7 +9,7 @@ interface SearchRepositoriesAction {
 }
 
 interface SearchRepositoriesSuccessAction {
-  type: 'search_repositories_success_action';
+  type: 'search_repositories_success';
   payload: string[];
 }
 
@@ -20,7 +20,10 @@ interface SearchRepositoriesErrorAction {
 
 const reducer = (
   state: RepositoriesState,
-  action: Action
+  action: 
+    | SearchRepositoriesAction
+    | SearchRepositoriesSuccessAction
+    | SearchRepositoriesErrorAction
 ): RepositoriesState => {
   switch (action.type) {
 
